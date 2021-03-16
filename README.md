@@ -1,2 +1,5 @@
-# mdn-001--number-guessing-game
-this project demonstrates the use of conditional statements in JS to play a guessing game
+# MDN Practice: Number Guessing Game #
+This project challenges a developer to:
+- structure the application in the IDE
+- make use of any CSS layout techmique
+- effectvely use JS to make changes
