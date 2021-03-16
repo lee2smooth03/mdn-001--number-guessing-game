@@ -1,0 +1,40 @@
+/**
+ * reset the padding and margins on the page
+ * this should work on any browser
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+  /*font-size: 28pt;*/
+    color: rgba(0, 255, 127, 0.2);
+}
+
+body {
+    background-color: rgba(0, 255, 127, 0.3);
+}
+
+div.container {
+    height: calc(100vh - 52px);
+    width: calc(100vw - 15px);
+
+    margin: 5px;
+
+    border: 2px orange solid;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.game-contain {
+    height: 100px;
+    width: 100px;
+
+    border: 1px rgba(255, 165, 0, 0.4) solid;
+    box-shadow: 8px 10px 3px rgba(255, 165, 0, 0.4);
+}
