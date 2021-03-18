@@ -7,13 +7,33 @@
 
     <title>MDN Practice: JS Activity #01</title>
 
+    <!-- HTML connection to the CSS stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- HTML connection to the JS file. The defer was necessary here; code did not work before it -->
+    <script defer src="./js/script.js"></script>
 </head>
 <body>
     <h1>MDN Practice: Number Guessing Game | JS001</h1>
     <div class="container">
         <div class="game-contain">
-            <p>put words here</p>
+            <h2>Number<span>-</span>Guessing Game</h2>
+            <p>
+                Our system has generated a random number between 1 and 100. Let's see if you can guess it
+                in ten (10) guesses or fewer. We will tell you if your guess is too high 
+                <i class="fa fa-arrow-circle-o-up"></i> or too low
+                <i class="fa fa-arrow-circle-o-down"></i>.</p><br>
+            
+            <label for="guessField">Enter a Guess: <input class="guessField" id="guessField" type="text"></label>
+            <input type="submit" class="guessSubmit" value="Submit Your Guess">
+
+            <div class="resultsPara">
+                <p class="guesses">Previous Guesses: </p>
+                <p class="lastResult"></p>
+                <p class="lowORhi"></p>
+            </div>
         </div>
 
     </div>
