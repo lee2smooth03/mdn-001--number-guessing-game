@@ -71,7 +71,48 @@ div.resultsPara p:first-child {
     color: rgba(0, 255, 127, 0.75);
 }
 
+div.resultsPara p:nth-child(2){
+    height: 100px;
+
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-position-y: 37%;
+
+    background-size: cover;             /*this stretches the image to cover the width of the element*/
+    background-image: url(https://media.giphy.com/media/3ogwG9p4RM9E4ObbNK/giphy.gif);
+
+    text-align: center;
+    
+}
+
 span {
     font-weight: bolder;
     opacity: .25;
+}
+
+.colder {
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-position-y: 37%;
+    
+    background-size: cover;             /*this stretches the image to cover the width of the element*/
+    background-image: url(https://media.giphy.com/media/3ogwG9p4RM9E4ObbNK/giphy.gif);    
+}
+
+.warmer {
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-position-y: 62%;
+
+    background-size: cover;
+    background-image: url(https://media.giphy.com/media/nrXif9YExO9EI/giphy.gif);
+}
+
+.bulls-eye {
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+
+    background-size: cover;
+    background-image: url(https://media.giphy.com/media/Z61gwKI72Gx2g/giphy.gif);
 }

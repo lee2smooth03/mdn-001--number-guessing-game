@@ -36,17 +36,19 @@ function checkGuess(){
     //variable declarations 
     let userGuess = Number(guessField.value);
 
-    alert(`This is guess number ${guessCount} of 10 for you. Hint: the answer is ${randomNumber}`);
+    if (guessCount === 1) {
+        //this is the only hint that the player will get while they play the game:
+        //alert(`This is guess #1 for you. The answer is ${randomNumber}. Good Luck!`);
 
-    if (guessCount < 10) {
-        //turn the visibility of the hidden <div> element back on
-        //resultDiv.style.display = 'block';
+        //turns on the visibility of a hidden <div>
         resultDiv.style.visibility = 'visible';
 
+        allGuesses.textContent = `Previous Guesses: [${userGuess}]`;
+
         //1st check: using ternary operator (true|fase)? ifTRUE: ifFALSE;
-        (guessCount < 1)?allGuesses.textContent = 'Previous guesses: ': allGuesses.textContent += `[${userGuess}], `;
+        //(guessCount < 1)?allGuesses.textContent = 'Previous guesses: ': allGuesses.textContent += `[${userGuess}], `;
     } else {
-        allGuesses.textContent += `[${userGuess}]`
+        (guessCount < 10)? allGuesses.textContent += `, [${userGuess}]`: allGuesses.textContent += `, [${userGuess}]!`;
     }
 
     //2nd check: compare guess to the random number
@@ -57,13 +59,13 @@ function checkGuess(){
         setGameOver();
     } else if (guessCount === 10){
         lastResult.textContent = `!!!Game Over!!!`
-        lowORhi.textContent = `Last guess was too ${(userGuess<randomNumber)?'low':'high'}. The correct answer was ${randomNumber}.`;
+        lowORhi.textContent = `Your last guess was too ${(userGuess<randomNumber)?'low':'high'}. The correct answer was ${randomNumber}.`;
         setGameOver();
     } else {
         lastResult.textContent = 'Wrong'
 
         //nest a ternary operator that offers a clue
-        lowORhi.textContent = `Last guess was too ${(userGuess<randomNumber)?'low':'high'}.`;
+        lowORhi.textContent = `Your last guess was too ${(userGuess<randomNumber)?'low':'high'}.`;
     }
 
     guessCount++;
@@ -76,17 +78,25 @@ guessSubmit.addEventListener('click', checkGuess);
 
 //3rd function: display the game over; add button
 function setGameOver(){
+
+    let buttonDiv;
+
     guessField.disabled = true;
     guessSubmit.disabled = true;
 
     //create a reset button
     resetButton = document.createElement('button');
     resetButton.textContent = 'Start New Game';
+    resetButton.style.marginTop = '10px';
 
 /** adds a reset button to the document
     document.body.append(resetButton);*/
 
-    lowORhi.appendChild(resetButton);
+    buttonDiv = document.createElement('div');
+    buttonDiv.appendChild(resetButton);
+
+    lowORhi.appendChild(buttonDiv);
+    //lowORhi.appendChild(resetButton);
     resetButton.addEventListener('click', resetGame);
 }
 
@@ -122,7 +132,7 @@ function clearPara() {
         resetParas[i].textContent = '';
     }
 
-    lastResult.style.backgroundColor = 'white';
+    lastResult.style.backgroundColor = 'rgba(255, 255, 255, 0.75)';
     allGuesses.textContent = 'Previous Guesses: ';
 }
 
@@ -146,3 +156,5 @@ function togglePara() {
         console.log(`We didn't realize the div was displaying as ${resultDiv}`);
     }
 }
+
+//https://media.giphy.com/media/3ogwG9p4RM9E4ObbNK/giphy.gif
