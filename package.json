@@ -1,0 +1,24 @@
+{
+  "name": "mdn-001--number-guessing-game",
+  "version": "1.0.0",
+  "description": "guess the number between 1 and 100",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lee2smooth03/mdn-001--number-guessing-game.git"
+  },
+  "keywords": [
+    "guess",
+    "guessing",
+    "number"
+  ],
+  "author": "ALR4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lee2smooth03/mdn-001--number-guessing-game/issues"
+  },
+  "homepage": "https://github.com/lee2smooth03/mdn-001--number-guessing-game#readme"
+}
