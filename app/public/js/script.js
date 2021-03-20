@@ -17,9 +17,9 @@
 // a) this generates a random number between 1 - 100
 let randomNumber = Math.floor(Math.random() * 100) + 1;
 
-const allGuesses = document.querySelector('.guesses');
-const lastResult = document.querySelector('.lastResult');
-const lowORhi = document.querySelector('.lowORhi');
+const allGuesses = document.querySelector('.guesses');      //1st paragraph
+const lastResult = document.querySelector('.lastResult');   //2nd paragraph
+const lowORhi = document.querySelector('.lowORhi');         //3rd paragraph
 
 const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
@@ -53,19 +53,57 @@ function checkGuess(){
 
     //2nd check: compare guess to the random number
     if (userGuess === randomNumber){
+        /*
         lastResult.textContent = 'Congratulations!!!';
         lastResult.style.backgroundColor = 'green';
-        lowORhi.textContent = '';
+        lowORhi.textContent = '';*/
+        thisResult('bulls-eye', `Your last guess was just right. Way to go!`);
+
         setGameOver();
     } else if (guessCount === 10){
         lastResult.textContent = `!!!Game Over!!!`
         lowORhi.textContent = `Your last guess was too ${(userGuess<randomNumber)?'low':'high'}. The correct answer was ${randomNumber}.`;
         setGameOver();
     } else {
+        /**
         lastResult.textContent = 'Wrong'
 
         //nest a ternary operator that offers a clue
         lowORhi.textContent = `Your last guess was too ${(userGuess<randomNumber)?'low':'high'}.`;
+        */
+
+        /**
+         * maybe call a function here
+         * maybe build it out right here
+         * 
+         * 01) is the guess higher or lower?
+         * 02) is the difference within 25, 10, 5?
+         *      - (within 25) your last guess was very cold
+         *      - (within 10) getting warmer, but still cold
+         *      - (within 05) getting hot
+         */
+
+        var theDiff = Math.abs(randomNumber - userGuess);
+        //alert(theDiff, randomNumber);
+        switch (true){
+            case (theDiff > 25): {
+                thisResult('colder', `Your last guess was too ${(userGuess < randomNumber)?'low':'high'}. Very, very COLD!`);
+                break;
+            }
+            case (theDiff > 10): {
+                thisResult('colder', `Too ${(userGuess < randomNumber)?'low':'high'}! You are getting closer, but still COLD...`);
+                break;
+            }
+            case (theDiff > 0): {
+                //alert('getting hot!');
+                thisResult('warmer', `Oh, you are getting HOT! Still a little too ${(userGuess < randomNumber)?'low':'high'} tho.`);
+                break;
+            }
+            default: {
+                alert('tell me where to go');
+            }
+        }
+
     }
 
     guessCount++;
@@ -136,7 +174,7 @@ function clearPara() {
     allGuesses.textContent = 'Previous Guesses: ';
 }
 
-function togglePara() {
+/**function togglePara() {
     //if the <div> is on, turn it off; if it is off, turn it on
     const resultDiv = document.querySelector('.resultsPara');
 
@@ -155,6 +193,14 @@ function togglePara() {
         default:
         console.log(`We didn't realize the div was displaying as ${resultDiv}`);
     }
-}
+}*/
 
-//https://media.giphy.com/media/3ogwG9p4RM9E4ObbNK/giphy.gif
+function thisResult(temp, phrasing) {
+    //remove any pre-existing backgrounds and phrases before adding new ones
+    document.querySelector('div.resultsPara p:nth-child(2)').classList.remove('colder', 'warmer', 'bulls-eye');
+    document.querySelector('div.resultsPara p:nth-child(2)').classList.add(temp);   //adds whatever temp
+
+    //remove anything that's there already before adding the 
+    lowORhi.textContent = '';
+    lowORhi.textContent = phrasing;
+}
