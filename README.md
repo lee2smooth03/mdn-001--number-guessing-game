@@ -64,6 +64,6 @@ This section offers simple commentary about each component of the application in
         * 06 x user functions
         * 07 x string ${literals}
         * 04 x ternary operators
+
 - ### Deployment ###
-    + deployed via heroku:
-    + https://mdn-practice-js001.herokuapp.com/
+    + deployed via heroku: https://mdn-practice-js001.herokuapp.com/
