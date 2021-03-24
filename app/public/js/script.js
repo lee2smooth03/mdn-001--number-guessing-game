@@ -103,7 +103,6 @@ function checkGuess(){
                 alert('tell me where to go');
             }
         }
-
     }
 
     guessCount++;
